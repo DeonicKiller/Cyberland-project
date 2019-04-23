@@ -1,0 +1,27 @@
+#topBar {
+    background-color: #353333; 
+    position: fixed;
+    margin-top: -80px;
+    margin-left: -120px; 
+    height: 80px;
+    width: 100%;
+    color: lightgrey;
+    border-bottom: 1px solid #464646;
+}
+#sideBar {
+    height: 100%;
+    width: 120px;
+    position: fixed;
+    background-color: #312f2f;
+    padding-top: 20px;
+    margin-left: -120px;
+    margin-top: 0px;
+    border-right: 1px solid #464646;
+    border-top: 1px solid #464646;
+}
+#body {
+    background-color: #292828;
+    margin-left: 120px;
+    margin-top: 80px;
+    margin-bottom: 8%;
+    color: lightgrey;
