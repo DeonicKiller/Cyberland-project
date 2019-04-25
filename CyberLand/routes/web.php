@@ -11,8 +11,8 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return 'Webshop API';
+$router->get('/', function () {
+    return redirect('index.html');
 });
 
 
