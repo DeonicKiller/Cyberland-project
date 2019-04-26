@@ -12,10 +12,12 @@ class Product extends Model
  * @var array
  */
  protected $fillable = [
-    'name',
-    'price',
-    'platform',
-    'image',
-    'description',
+    'Name',
+    'Budget',
+    'Platform',
+    'Image',
+    'Description',
+    'Multi/on',
+    'Genre',
  ];
 }
