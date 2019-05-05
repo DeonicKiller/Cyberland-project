@@ -1,5 +1,5 @@
 #topBar {
-    background-color: #353333; 
+    background-color: #413e3e; 
     position: fixed;
     margin-top: -80px;
     margin-left: -120px; 
@@ -12,15 +12,15 @@
     height: 100%;
     width: 120px;
     position: fixed;
-    background-color: #312f2f;
-    padding-top: 20px;
+    background-color: #494646;
+    
     margin-left: -120px;
     margin-top: 0px;
     border-right: 1px solid #464646;
     border-top: 1px solid #464646;
 }
 #body {
-    background-color: #292828;
+    background-color: #524b4b;
     margin-left: 120px;
     margin-top: 80px;
     margin-bottom: 8%;
