@@ -1,3 +1,8 @@
+var budgetInfo
+var platformInfo
+var multiInfo
+var genreInfo
+
 
 function addbuttonactions() {
     var buttonA1 = document.getElementById("button1.1");
@@ -19,24 +24,23 @@ function addbuttonactions() {
     var buttonD6 = document.getElementById("button4.6");
 
 
-    buttonA1.addEventListener("click", function () {showQuestion2()});    
-    buttonA2.addEventListener("click", function () {showQuestion2()});
+    buttonA1.addEventListener("click", function () {showQuestion2(), budgetInfo = '€-0 t/m €-30'});    
+    buttonA2.addEventListener("click", function () {showQuestion2(), budgetInfo = '€-30 t/m €-60'});
 
-    buttonB1.addEventListener("click", function () {showQuestion3()});    
-    buttonB2.addEventListener("click", function () {showQuestion3()});
-    buttonB3.addEventListener("click", function () {showQuestion3()});    
-    buttonB4.addEventListener("click", function () {showQuestion3()});
+    buttonB1.addEventListener("click", function () {showQuestion3(), platformInfo = 'Playstation'});    
+    buttonB2.addEventListener("click", function () {showQuestion3(), platformInfo = 'Xbox'});
+    buttonB3.addEventListener("click", function () {showQuestion3(), platformInfo = 'Pc'});    
+    buttonB4.addEventListener("click", function () {showQuestion3(), platformInfo = 'Nintendo Switch'});
 
-    buttonC1.addEventListener("click", function () {showQuestion4()});    
-    buttonC2.addEventListener("click", function () {showQuestion4()});
+    buttonC1.addEventListener("click", function () {showQuestion4(), multiInfo = 'Multiplayer'});    
+    buttonC2.addEventListener("click", function () {showQuestion4(), multiInfo = 'Singelplayer'});
 
-    buttonD1.addEventListener("click", function () {showRecommendationPage()});    
-    buttonD2.addEventListener("click", function () {showRecommendationPage()});
-    buttonD3.addEventListener("click", function () {showRecommendationPage()});    
-    buttonD4.addEventListener("click", function () {showRecommendationPage()});
-    buttonD5.addEventListener("click", function () {showRecommendationPage()});    
-    buttonD6.addEventListener("click", function () {showRecommendationPage()});
-
+    buttonD1.addEventListener("click", function () {showRecommendationPage(), genreInfo = 'Rpg', testantwoorden()});    
+    buttonD2.addEventListener("click", function () {showRecommendationPage(), genreInfo = 'Fps', testantwoorden()});
+    buttonD3.addEventListener("click", function () {showRecommendationPage(), genreInfo = 'Action', testantwoorden()});    
+    buttonD4.addEventListener("click", function () {showRecommendationPage(), genreInfo = 'Arcade', testantwoorden()});
+    buttonD5.addEventListener("click", function () {showRecommendationPage(), genreInfo = 'Simulator', testantwoorden()});    
+    buttonD6.addEventListener("click", function () {showRecommendationPage(), genreInfo = 'MMO', testantwoorden()});
 }
 
 function hideAllQuestions(){
@@ -123,29 +127,53 @@ function showRecommendationPage(){
     recommendationPage.style.display = "block";
 }
 
+function ApisendGameInfo(){
+    var budget = budgetInfo
+    var platform = platformInfo
+    var multi = multiInfo
+    var genre = genreInfo
+    var sendGameMessages = new Api('POST','products', {
+        'budget': budget ,
+        'platform': platform,
+        'multi/on': multi,
+        'genre': genre,
+    })
+    sendGameMessages.execute(SendSucces, SendFail);
+}
 
+function SendSucces(response) {
+    console.log(response);
+}
 
+function SendFail(statusCode, errorMessage){
+    console.log(statusCode);
+    console.log(errorMessage);
+}
 
+function testantwoorden(){
+    var budget = budgetInfo
+    var platform = platformInfo
+    var multi = multiInfo
+    var genre = genreInfo
 
+    console.log(budget);
+    console.log(platform);
+    console.log(multi);
+    console.log(genre);
+}
 
-// function vraagEnAntwoord() {
-//     var vraag1 = document.getElementById("vraag1");
-//     var button10 = document.getElementById("Button1");
-//     var button20 = document.getElementById("Button2");
-
-// var i = i + 1;
-//     vraag1.innerHTML = (vragenlijst[i][0]);
-//     button10.innerHTML = (antwoordlijst[i][0]);
-//     button20.innerHTML = (antwoordlijst[i][1]);
-
+// ------refrence voor apisend------
+// function ApiSend(RoomId) {
+//     var info = currentToken;
+//     var SendInput = document.getElementById("InputMessage");
+//     var SendMessagesApi = new Api('POST', 'messages', {
+//         'user_id': info.id,
+//         'room_id': RoomId,
+//         'description': SendInput.value,
+//     });
+//     SendMessagesApi.execute(SendSucces, SendFail);
 // }
 
-// var vragenlijst = ["1","2","3"];
-// var antwoordlijst =[ ["multiplayer", "singleplayer"],
-//                      ["Console", "Computer"],
-//                      ["OpenWorld", "Liniar"]
-//                      ];
-// var i = 0;
 addbuttonactions();
 hideAllQuestions();
 showQuestion1()
