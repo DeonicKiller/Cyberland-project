@@ -1,37 +1,20 @@
-#topBar {
-    background-color: #413e3e; 
-    position: fixed;
-    margin-top: -80px;
-    margin-left: -120px; 
-    height: 80px;
-    width: 100%;
-    color: lightgrey;
-    border-bottom: 1px solid #464646;
+#logo {
+    left: -10px;
+    top: -10px;
+
 }
-#sideBar {
-    height: 100%;
-    width: 120px;
-    position: fixed;
-    background-color: #494646;
-    
-    margin-left: -120px;
-    margin-top: 0px;
-    border-right: 1px solid #464646;
-    border-top: 1px solid #464646;
-}
+
 #body {
     background-color: #413e3e;
-    margin-left: 120px;
-    margin-top: 80px;
+    margin-left: 20px;
+    margin-top: 20px;
     margin-bottom: 8%;
     color: lightgrey;
 }
 
-/* .vragen {
-    color: black;
-    text-align: center; 
-    display: inline-block;
-} */
+#quizpage {
+    margin-left: 30%;
+}
 
 .button {
     display: inline-block;
@@ -50,3 +33,25 @@
 .button:hover {
     background-color: #3e8e41;
 }
+
+/* #topBar {
+                background-color: #413e3e; 
+                position: fixed;
+                margin-top: -80px;
+                margin-left: -120px; 
+                height: 80px;
+                width: 100%;
+                color: lightgrey;
+                border-bottom: 1px solid #464646;
+            } */
+/* #sideBar {
+                height: 100%;
+                width: 120px;
+                position: fixed;
+                background-color: #494646;
+                
+                margin-left: -120px;
+                margin-top: 0px;
+                border-right: 1px solid #464646;
+                border-top: 1px solid #464646;
+            } */
