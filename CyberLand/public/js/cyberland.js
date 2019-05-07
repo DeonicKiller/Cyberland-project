@@ -1,7 +1,7 @@
-var budgetInfo
-var platformInfo
-var multiInfo
-var genreInfo
+var budgetInfo;
+var platformInfo;
+var multiInfo;
+var genreInfo;
 
 
 function addbuttonactions() {
@@ -54,28 +54,28 @@ function addbuttonactions() {
     });
 
     buttonD1.addEventListener("click", function () {
-        showRecommendationPage(), genreInfo = 'Rpg', testantwoorden()
+        showRecommendationPage(), genreInfo = 'Rpg', ApisendGameInfo()
     });
     buttonD2.addEventListener("click", function () {
-        showRecommendationPage(), genreInfo = 'Fps', testantwoorden()
+        showRecommendationPage(), genreInfo = 'Fps', ApisendGameInfo()
     });
     buttonD3.addEventListener("click", function () {
-        showRecommendationPage(), genreInfo = 'Action', testantwoorden()
+        showRecommendationPage(), genreInfo = 'Action', ApisendGameInfo()
     });
     buttonD4.addEventListener("click", function () {
-        showRecommendationPage(), genreInfo = 'Arcade', testantwoorden()
+        showRecommendationPage(), genreInfo = 'Arcade', ApisendGameInfo()
     });
     buttonD5.addEventListener("click", function () {
-        showRecommendationPage(), genreInfo = 'Simulator', testantwoorden()
+        showRecommendationPage(), genreInfo = 'Simulator', ApisendGameInfo()
     });
     buttonD6.addEventListener("click", function () {
-        showRecommendationPage(), genreInfo = 'MMO', testantwoorden()
+        showRecommendationPage(), genreInfo = 'MMO', ApisendGameInfo()
     });
     buttonD7.addEventListener("click", function () {
-        showRecommendationPage(), genreInfo = 'Horror', testantwoorden()
+        showRecommendationPage(), genreInfo = 'Horror', ApisendGameInfo()
     });
     buttonD8.addEventListener("click", function () {
-        showRecommendationPage(), genreInfo = 'Fighting', testantwoorden()
+        showRecommendationPage(), genreInfo = 'Fighting', ApisendGameInfo()
     });
 }
 
@@ -164,16 +164,16 @@ function showRecommendationPage() {
 }
 
 function ApisendGameInfo() {
-    var budget = budgetInfo
-    var platform = platformInfo
-    var multi = multiInfo
-    var genre = genreInfo
+    var budget = budgetInfo;
+    var platform = platformInfo;
+    var multi = multiInfo;
+    var genre = genreInfo;
     var sendGameMessages = new Api('POST', 'recomended', {
         'budget': budget,
         'platform': platform,
         'multiplayer': multi,
         'genre': genre,
-    })
+    });
 
     sendGameMessages.execute(SendSucces, SendFail);
 }
@@ -213,4 +213,4 @@ function testantwoorden() {
 
 addbuttonactions();
 hideAllQuestions();
-showQuestion1()
+showQuestion1();

@@ -108,9 +108,9 @@ class ProductController extends Controller
         $genre .= $request->genre;
         $genre .= '%';
         
-        $data = Product::where('platform', '=', $request->platform)
-        ->where('multi/on','=', $request->multiplayer)
-        ->where('genre', 'LIKE', $request->genre)
+        $data = Product::where('Platform', '=', $request->platform)
+        ->where('Multi/on','=', $request->multiplayer)
+        ->where('Genre', 'LIKE', $genre)
         ->whereBetween('Budget', $budget)->get();
         
         return response()->json($data, 200);
