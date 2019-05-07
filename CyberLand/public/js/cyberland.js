@@ -3,7 +3,6 @@ var platformInfo;
 var multiInfo;
 var genreInfo;
 
-
 function addbuttonactions() {
     var buttonA1 = document.getElementById("button1.1");
     var buttonA2 = document.getElementById("button1.2");
@@ -24,7 +23,6 @@ function addbuttonactions() {
     var buttonD6 = document.getElementById("button4.6");
     var buttonD7 = document.getElementById("button4.7");
     var buttonD8 = document.getElementById("button4.8");
-
 
     buttonA1.addEventListener("click", function () {
         showQuestion2(), budgetInfo = '0,30'
@@ -79,88 +77,40 @@ function addbuttonactions() {
     });
 }
 
-function hideAllQuestions() {
-    var vraag1Page = document.getElementById("vraag1Page");
-    var vraag2Page = document.getElementById("vraag2Page");
-    var vraag3Page = document.getElementById("vraag3Page");
-    var vraag4Page = document.getElementById("vraag4Page");
-    var recommendationPage = document.getElementById("recommendationPage");
-
-    vraag1Page.style.display = "block";
-    vraag2Page.style.display = "none";
-    vraag3Page.style.display = "none";
-    vraag4Page.style.display = "none";
-    recommendationPage.style.display = "none";
-}
-
 function showQuestion1() {
-    var vraag1Page = document.getElementById("vraag1Page");
-    var vraag2Page = document.getElementById("vraag2Page");
-    var vraag3Page = document.getElementById("vraag3Page");
-    var vraag4Page = document.getElementById("vraag4Page");
-    var recommendationPage = document.getElementById("recommendationPage");
-
-    vraag1Page.style.display = "block";
-    vraag2Page.style.display = "none";
-    vraag3Page.style.display = "none";
-    vraag4Page.style.display = "none";
-    recommendationPage.style.display = "none";
+    hideAllPages();
+    showElement('vraag1Page');
 }
 
 function showQuestion2() {
-    var vraag1Page = document.getElementById("vraag1Page");
-    var vraag2Page = document.getElementById("vraag2Page");
-    var vraag3Page = document.getElementById("vraag3Page");
-    var vraag4Page = document.getElementById("vraag4Page");
-    var recommendationPage = document.getElementById("recommendationPage");
-
-    vraag1Page.style.display = "none";
-    vraag2Page.style.display = "block";
-    vraag3Page.style.display = "none";
-    vraag4Page.style.display = "none";
-    recommendationPage.style.display = "none";
+    hideAllPages();
+    showElement('vraag2Page');
 }
 
 function showQuestion3() {
-    var vraag1Page = document.getElementById("vraag1Page");
-    var vraag2Page = document.getElementById("vraag2Page");
-    var vraag3Page = document.getElementById("vraag3Page");
-    var vraag4Page = document.getElementById("vraag4Page");
-    var recommendationPage = document.getElementById("recommendationPage");
-
-    vraag1Page.style.display = "none";
-    vraag2Page.style.display = "none";
-    vraag3Page.style.display = "block";
-    vraag4Page.style.display = "none";
-    recommendationPage.style.display = "none";
+    hideAllPages();
+    showElement('vraag3Page');
 }
 
 function showQuestion4() {
-    var vraag1Page = document.getElementById("vraag1Page");
-    var vraag2Page = document.getElementById("vraag2Page");
-    var vraag3Page = document.getElementById("vraag3Page");
-    var vraag4Page = document.getElementById("vraag4Page");
-    var recommendationPage = document.getElementById("recommendationPage");
-
-    vraag1Page.style.display = "none";
-    vraag2Page.style.display = "none";
-    vraag3Page.style.display = "none";
-    vraag4Page.style.display = "block";
-    recommendationPage.style.display = "none";
+    hideAllPages();
+    showElement('vraag4Page');
 }
 
 function showRecommendationPage() {
-    var vraag1Page = document.getElementById("vraag1Page");
-    var vraag2Page = document.getElementById("vraag2Page");
-    var vraag3Page = document.getElementById("vraag3Page");
-    var vraag4Page = document.getElementById("vraag4Page");
-    var recommendationPage = document.getElementById("recommendationPage");
+    hideAllPages();
+    showElement('recommendationPage');
+}
 
-    vraag1Page.style.display = "none";
-    vraag2Page.style.display = "none";
-    vraag3Page.style.display = "none";
-    vraag4Page.style.display = "none";
-    recommendationPage.style.display = "block";
+function hideAllPages() {
+    var allPages = document.getElementsByClassName("page");
+    for (var i = 0; i < allPages.length; i++) {
+        allPages[i].style.display = "none";
+    }
+}
+
+function showElement(page) {
+    document.getElementById(page).style.display = "block";
 }
 
 function ApisendGameInfo() {
@@ -188,12 +138,12 @@ function SendFail(statusCode, errorMessage) {
     console.log(errorMessage);
 }
 
-function showRecommendations(response){
-    
+function showRecommendations(response) {
+
 }
 
 class Api {
-    constructor(request = '', route = '', send = '', content = 'application/json' , prefix = 'api/') {
+    constructor(request = '', route = '', send = '', content = 'application/json', prefix = 'api/') {
         this.request = request;
         this.route = route;
         this.content = content;
@@ -225,5 +175,5 @@ class Api {
 }
 
 addbuttonactions();
-hideAllQuestions();
+hideAllPages();
 showQuestion1();

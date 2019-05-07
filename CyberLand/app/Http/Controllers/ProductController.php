@@ -103,17 +103,17 @@ class ProductController extends Controller
 
     public function RecomendedProducts(Request $request) {
 
-        $budget = explode (",", $request->budget); 
+        $budget = explode(",", $request->budget); 
+        
         $genre = '%';
         $genre .= $request->genre;
         $genre .= '%';
         
-        $data = Product::where('Platform', '=', $request->platform)
+        return Product::where('Platform', '=', $request->platform)
         ->where('Multi/on','=', $request->multiplayer)
         ->where('Genre', 'LIKE', $genre)
-        ->whereBetween('Budget', $budget)->get();
-        
-        return response()->json($data, 200);
+        ->whereBetween('Budget', $budget)
+        ->get();
     }
 }
 
