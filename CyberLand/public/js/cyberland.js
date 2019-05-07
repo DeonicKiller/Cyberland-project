@@ -179,7 +179,8 @@ function ApisendGameInfo() {
 }
 
 function SendSucces(response) {
-    console.log(response[0]);
+    console.log(response);
+    showRecommendations(response);
 }
 
 function SendFail(statusCode, errorMessage) {
@@ -187,16 +188,8 @@ function SendFail(statusCode, errorMessage) {
     console.log(errorMessage);
 }
 
-function testantwoorden() {
-    var budget = budgetInfo
-    var platform = platformInfo
-    var multi = multiInfo
-    var genre = genreInfo
-
-    console.log(budget);
-    console.log(platform);
-    console.log(multi);
-    console.log(genre);
+function showRecommendations(response){
+    
 }
 
 class Api {
