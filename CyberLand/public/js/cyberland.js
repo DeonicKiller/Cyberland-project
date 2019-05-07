@@ -23,6 +23,7 @@ function addbuttonactions() {
     var buttonD5 = document.getElementById("button4.5");
     var buttonD6 = document.getElementById("button4.6");
     var buttonD7 = document.getElementById("button4.7");
+    var buttonD8 = document.getElementById("button4.8");
 
 
     buttonA1.addEventListener("click", function () {showQuestion2(), budgetInfo = '€-0 t/m €-30'});    
@@ -43,6 +44,7 @@ function addbuttonactions() {
     buttonD5.addEventListener("click", function () {showRecommendationPage(), genreInfo = 'Simulator', testantwoorden()});    
     buttonD6.addEventListener("click", function () {showRecommendationPage(), genreInfo = 'MMO', testantwoorden()});
     buttonD7.addEventListener("click", function () {showRecommendationPage(), genreInfo = 'Horror', testantwoorden()});
+    buttonD8.addEventListener("click", function () {showRecommendationPage(), genreInfo = 'Fighting', testantwoorden()});
 }
 
 function hideAllQuestions(){
