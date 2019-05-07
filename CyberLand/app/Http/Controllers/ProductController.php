@@ -101,6 +101,20 @@ class ProductController extends Controller
         return response()->json($product, 200);
     }
 
+    public function RecomendedProducts(Request $request) {
+
+        $budget = explode (",", $request->budget); 
+        $genre = '%';
+        $genre .= $request->genre;
+        $genre .= '%';
+        
+        $data = Product::where('platform', '=', $request->platform)
+        ->where('multi/on','=', $request->multiplayer)
+        ->where('genre', 'LIKE', $request->genre)
+        ->whereBetween('Budget', $budget)->get();
+        
+        return response()->json($data, 200);
+    }
 }
 
 
