@@ -25,27 +25,57 @@ function addbuttonactions() {
     var buttonD7 = document.getElementById("button4.7");
 
 
-    buttonA1.addEventListener("click", function () {showQuestion2(), budgetInfo = '€-0 t/m €-30'});    
-    buttonA2.addEventListener("click", function () {showQuestion2(), budgetInfo = '€-30 t/m €-60'});
+    buttonA1.addEventListener("click", function () {
+        showQuestion2(), budgetInfo = '0,30'
+    });
+    buttonA2.addEventListener("click", function () {
+        showQuestion2(), budgetInfo = '30,60'
+    });
 
-    buttonB1.addEventListener("click", function () {showQuestion3(), platformInfo = 'Playstation'});    
-    buttonB2.addEventListener("click", function () {showQuestion3(), platformInfo = 'Xbox'});
-    buttonB3.addEventListener("click", function () {showQuestion3(), platformInfo = 'Pc'});    
-    buttonB4.addEventListener("click", function () {showQuestion3(), platformInfo = 'Nintendo Switch'});
+    buttonB1.addEventListener("click", function () {
+        showQuestion3(), platformInfo = 'Playstation'
+    });
+    buttonB2.addEventListener("click", function () {
+        showQuestion3(), platformInfo = 'Xbox'
+    });
+    buttonB3.addEventListener("click", function () {
+        showQuestion3(), platformInfo = 'Pc'
+    });
+    buttonB4.addEventListener("click", function () {
+        showQuestion3(), platformInfo = 'Nintendo Switch'
+    });
 
-    buttonC1.addEventListener("click", function () {showQuestion4(), multiInfo = 'Multiplayer'});    
-    buttonC2.addEventListener("click", function () {showQuestion4(), multiInfo = 'Singelplayer'});
+    buttonC1.addEventListener("click", function () {
+        showQuestion4(), multiInfo = 'Multiplayer'
+    });
+    buttonC2.addEventListener("click", function () {
+        showQuestion4(), multiInfo = 'Singelplayer'
+    });
 
-    buttonD1.addEventListener("click", function () {showRecommendationPage(), genreInfo = 'Rpg', testantwoorden()});    
-    buttonD2.addEventListener("click", function () {showRecommendationPage(), genreInfo = 'Fps', testantwoorden()});
-    buttonD3.addEventListener("click", function () {showRecommendationPage(), genreInfo = 'Action', testantwoorden()});    
-    buttonD4.addEventListener("click", function () {showRecommendationPage(), genreInfo = 'Arcade', testantwoorden()});
-    buttonD5.addEventListener("click", function () {showRecommendationPage(), genreInfo = 'Simulator', testantwoorden()});    
-    buttonD6.addEventListener("click", function () {showRecommendationPage(), genreInfo = 'MMO', testantwoorden()});
-    buttonD7.addEventListener("click", function () {showRecommendationPage(), genreInfo = 'Horror', testantwoorden()});
+    buttonD1.addEventListener("click", function () {
+        showRecommendationPage(), genreInfo = 'Rpg', testantwoorden()
+    });
+    buttonD2.addEventListener("click", function () {
+        showRecommendationPage(), genreInfo = 'Fps', testantwoorden()
+    });
+    buttonD3.addEventListener("click", function () {
+        showRecommendationPage(), genreInfo = 'Action', testantwoorden()
+    });
+    buttonD4.addEventListener("click", function () {
+        showRecommendationPage(), genreInfo = 'Arcade', testantwoorden()
+    });
+    buttonD5.addEventListener("click", function () {
+        showRecommendationPage(), genreInfo = 'Simulator', testantwoorden()
+    });
+    buttonD6.addEventListener("click", function () {
+        showRecommendationPage(), genreInfo = 'MMO', testantwoorden()
+    });
+    buttonD7.addEventListener("click", function () {
+        showRecommendationPage(), genreInfo = 'Horror', testantwoorden()
+    });
 }
 
-function hideAllQuestions(){
+function hideAllQuestions() {
     var vraag1Page = document.getElementById("vraag1Page");
     var vraag2Page = document.getElementById("vraag2Page");
     var vraag3Page = document.getElementById("vraag3Page");
@@ -59,7 +89,7 @@ function hideAllQuestions(){
     recommendationPage.style.display = "none";
 }
 
-function showQuestion1(){
+function showQuestion1() {
     var vraag1Page = document.getElementById("vraag1Page");
     var vraag2Page = document.getElementById("vraag2Page");
     var vraag3Page = document.getElementById("vraag3Page");
@@ -73,13 +103,13 @@ function showQuestion1(){
     recommendationPage.style.display = "none";
 }
 
-function showQuestion2(){
+function showQuestion2() {
     var vraag1Page = document.getElementById("vraag1Page");
     var vraag2Page = document.getElementById("vraag2Page");
     var vraag3Page = document.getElementById("vraag3Page");
     var vraag4Page = document.getElementById("vraag4Page");
     var recommendationPage = document.getElementById("recommendationPage");
-    
+
     vraag1Page.style.display = "none";
     vraag2Page.style.display = "block";
     vraag3Page.style.display = "none";
@@ -87,7 +117,7 @@ function showQuestion2(){
     recommendationPage.style.display = "none";
 }
 
-function showQuestion3(){
+function showQuestion3() {
     var vraag1Page = document.getElementById("vraag1Page");
     var vraag2Page = document.getElementById("vraag2Page");
     var vraag3Page = document.getElementById("vraag3Page");
@@ -101,13 +131,13 @@ function showQuestion3(){
     recommendationPage.style.display = "none";
 }
 
-function showQuestion4(){
+function showQuestion4() {
     var vraag1Page = document.getElementById("vraag1Page");
     var vraag2Page = document.getElementById("vraag2Page");
     var vraag3Page = document.getElementById("vraag3Page");
     var vraag4Page = document.getElementById("vraag4Page");
     var recommendationPage = document.getElementById("recommendationPage");
-    
+
     vraag1Page.style.display = "none";
     vraag2Page.style.display = "none";
     vraag3Page.style.display = "none";
@@ -115,13 +145,13 @@ function showQuestion4(){
     recommendationPage.style.display = "none";
 }
 
-function showRecommendationPage(){
+function showRecommendationPage() {
     var vraag1Page = document.getElementById("vraag1Page");
     var vraag2Page = document.getElementById("vraag2Page");
     var vraag3Page = document.getElementById("vraag3Page");
     var vraag4Page = document.getElementById("vraag4Page");
     var recommendationPage = document.getElementById("recommendationPage");
-    
+
     vraag1Page.style.display = "none";
     vraag2Page.style.display = "none";
     vraag3Page.style.display = "none";
@@ -129,17 +159,18 @@ function showRecommendationPage(){
     recommendationPage.style.display = "block";
 }
 
-function ApisendGameInfo(){
+function ApisendGameInfo() {
     var budget = budgetInfo
     var platform = platformInfo
     var multi = multiInfo
     var genre = genreInfo
-    var sendGameMessages = new Api('POST','products', {
-        'budget': budget ,
+    var sendGameMessages = new Api('POST', 'recomended', {
+        'budget': budget,
         'platform': platform,
-        'multi/on': multi,
+        'multiplayer': multi,
         'genre': genre,
     })
+
     sendGameMessages.execute(SendSucces, SendFail);
 }
 
@@ -147,12 +178,12 @@ function SendSucces(response) {
     console.log(response);
 }
 
-function SendFail(statusCode, errorMessage){
+function SendFail(statusCode, errorMessage) {
     console.log(statusCode);
     console.log(errorMessage);
 }
 
-function testantwoorden(){
+function testantwoorden() {
     var budget = budgetInfo
     var platform = platformInfo
     var multi = multiInfo
