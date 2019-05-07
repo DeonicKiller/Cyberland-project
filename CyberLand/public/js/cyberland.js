@@ -199,17 +199,37 @@ function testantwoorden() {
     console.log(genre);
 }
 
-// ------refrence voor apisend------
-// function ApiSend(RoomId) {
-//     var info = currentToken;
-//     var SendInput = document.getElementById("InputMessage");
-//     var SendMessagesApi = new Api('POST', 'messages', {
-//         'user_id': info.id,
-//         'room_id': RoomId,
-//         'description': SendInput.value,
-//     });
-//     SendMessagesApi.execute(SendSucces, SendFail);
-// }
+class Api {
+    constructor(request = 'GET', route = '', content = 'application/json', send = null, prefix = 'api/') {
+        this.request = request;
+        this.route = route;
+        this.content = content;
+        this.send = send;
+        this.prefix = prefix;
+    }
+
+    execute(callback, fail) {
+        var xHttp = new XMLHttpRequest();
+        xHttp.onreadystatechange = function () {
+            if (xHttp.readyState == XMLHttpRequest.DONE) {
+                if (xHttp.status == 200 || xHttp.status == 201) {
+                    var response = JSON.parse(xHttp.response);
+                    callback(response);
+                } else {
+                    fail(xHttp.status);
+                }
+            }
+        };
+
+        xHttp.onerror = function () {
+            fail(xHttp.status);
+        };
+
+        xHttp.open(this.request, this.prefix + this.route, true);
+        xHttp.setRequestHeader('Content-Type', this.content);
+        xHttp.send(JSON.stringify(this.send));
+    }
+}
 
 addbuttonactions();
 hideAllQuestions();
