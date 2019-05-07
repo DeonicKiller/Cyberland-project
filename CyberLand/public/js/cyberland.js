@@ -179,7 +179,7 @@ function ApisendGameInfo() {
 }
 
 function SendSucces(response) {
-    console.log(response);
+    console.log(response[0]);
 }
 
 function SendFail(statusCode, errorMessage) {
@@ -200,7 +200,7 @@ function testantwoorden() {
 }
 
 class Api {
-    constructor(request = 'GET', route = '', content = 'application/json', send = null, prefix = 'api/') {
+    constructor(request = '', route = '', send = '', content = 'application/json' , prefix = 'api/') {
         this.request = request;
         this.route = route;
         this.content = content;
