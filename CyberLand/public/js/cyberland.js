@@ -180,16 +180,17 @@ function ApisendGameInfo() {
 
 function SendSucces(response) {
     console.log(response);
-    showRecommendations(response);
+    var aantalRooms = response.length;
+    for (let teller = 0; teller < aantalRooms; teller++){
+        console.log(response[teller])
+        var recommendationPlaceholder = document.getElementById("recommendationPlaceholder");
+        recommendationPlaceholder.innerHTML = recommendationPlaceholder.innerHTML + '<div style="display: inline-block;"> <img src="'+ response[teller].Image +'" alt="'+ response[teller].Name +'" style="width:250px;height:300px"> <br> <h3> '+response[teller].Name+'</h3> <h3> €'+response[teller].Budget+'</h3> </div>'
+    }
 }
 
 function SendFail(statusCode, errorMessage) {
     console.log(statusCode);
     console.log(errorMessage);
-}
-
-function showRecommendations(response){
-    
 }
 
 class Api {
@@ -227,3 +228,13 @@ class Api {
 addbuttonactions();
 hideAllQuestions();
 showQuestion1();
+
+// function showRooms(response) {
+//     console.log(response);
+//     var aantalRooms = response.length;
+//     for (var teller = 0; teller < aantalRooms; teller++) {
+//         var buttonPlacement = document.getElementById("creatButtons");
+//         buttonPlacement.innerHTML = buttonPlacement.innerHTML + "<button id='Room" + teller + "Button'>" + response[teller].name + "</button>";
+//     }
+//     ButtonActions(response);
+// }
