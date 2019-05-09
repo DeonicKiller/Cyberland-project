@@ -4,6 +4,9 @@ var multiInfo;
 var genreInfo;
 
 function addbuttonactions() {
+    var quizButton = document.getElementById("quizButton");
+    var homeButton = document.getElementById("homeButton");
+
     var buttonA1 = document.getElementById("button1.1");
     var buttonA2 = document.getElementById("button1.2");
 
@@ -24,6 +27,12 @@ function addbuttonactions() {
     var buttonD7 = document.getElementById("button4.7");
     var buttonD8 = document.getElementById("button4.8");
 
+    quizButton.addEventListener("click", function () {
+        showQuestion1()
+    });
+    homeButton.addEventListener("click", function () {
+        showHomePage()
+    });
     buttonA1.addEventListener("click", function () {
         showQuestion2(), budgetInfo = '0,30'
     });
@@ -75,6 +84,10 @@ function addbuttonactions() {
     buttonD8.addEventListener("click", function () {
         showRecommendationPage(), genreInfo = 'Fighting', ApisendGameInfo()
     });
+}
+function showHomePage() {
+    hideAllPages();
+    showElement('homePage');
 }
 
 function showQuestion1() {
@@ -177,7 +190,7 @@ class Api {
 
 addbuttonactions();
 hideAllPages();
-showQuestion1();
+showHomePage();
 
 // function showRooms(response) {
 //     console.log(response);
