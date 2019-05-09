@@ -4,77 +4,110 @@ var multiInfo;
 var genreInfo;
 
 function addbuttonactions() {
-    var buttonA1 = document.getElementById("button1.1");
-    var buttonA2 = document.getElementById("button1.2");
-
-    var buttonB1 = document.getElementById("button2.1");
-    var buttonB2 = document.getElementById("button2.2");
-    var buttonB3 = document.getElementById("button2.3");
-    var buttonB4 = document.getElementById("button2.4");
-
-    var buttonC1 = document.getElementById("button3.1");
-    var buttonC2 = document.getElementById("button3.2");
-
-    var buttonD1 = document.getElementById("button4.1");
-    var buttonD2 = document.getElementById("button4.2");
-    var buttonD3 = document.getElementById("button4.3");
-    var buttonD4 = document.getElementById("button4.4");
-    var buttonD5 = document.getElementById("button4.5");
-    var buttonD6 = document.getElementById("button4.6");
-    var buttonD7 = document.getElementById("button4.7");
-    var buttonD8 = document.getElementById("button4.8");
-
-    buttonA1.addEventListener("click", function () {
-        showQuestion2(), budgetInfo = '0,30'
-    });
-    buttonA2.addEventListener("click", function () {
-        showQuestion2(), budgetInfo = '30,60'
+    document.getElementById("button1.1").addEventListener("click", function () {
+        showQuestion2();
+        budgetInfo = '0,30';
+        showAnswer('Budget', '€0 t/m €30');
     });
 
-    buttonB1.addEventListener("click", function () {
-        showQuestion3(), platformInfo = 'Playstation'
-    });
-    buttonB2.addEventListener("click", function () {
-        showQuestion3(), platformInfo = 'Xbox'
-    });
-    buttonB3.addEventListener("click", function () {
-        showQuestion3(), platformInfo = 'Pc'
-    });
-    buttonB4.addEventListener("click", function () {
-        showQuestion3(), platformInfo = 'Nintendo Switch'
+    document.getElementById("button1.2").addEventListener("click", function () {
+        showQuestion2();
+        budgetInfo = '30,60';
+        showAnswer('Budget', '€30 t/m €60');
     });
 
-    buttonC1.addEventListener("click", function () {
-        showQuestion4(), multiInfo = 'Multiplayer'
-    });
-    buttonC2.addEventListener("click", function () {
-        showQuestion4(), multiInfo = 'Singelplayer'
+    document.getElementById("button2.1").addEventListener("click", function () {
+        showQuestion3();
+        platformInfo = 'Playstation';
+        showAnswer('Platform', 'Playstation');
     });
 
-    buttonD1.addEventListener("click", function () {
-        showRecommendationPage(), genreInfo = 'Rpg', ApisendGameInfo()
+    document.getElementById("button2.2").addEventListener("click", function () {
+        showQuestion3();
+        platformInfo = 'Xbox';
+        showAnswer('Platform', 'Xbox');
     });
-    buttonD2.addEventListener("click", function () {
-        showRecommendationPage(), genreInfo = 'Fps', ApisendGameInfo()
+
+    document.getElementById("button2.3").addEventListener("click", function () {
+        showQuestion3();
+        platformInfo = 'Pc';
+        showAnswer('Platform', 'Pc');
     });
-    buttonD3.addEventListener("click", function () {
-        showRecommendationPage(), genreInfo = 'Action', ApisendGameInfo()
+
+    document.getElementById("button2.4").addEventListener("click", function () {
+        showQuestion3();
+        platformInfo = 'Nintendo Switch';
+        showAnswer('Platform', 'Nintendo Switch');
     });
-    buttonD4.addEventListener("click", function () {
-        showRecommendationPage(), genreInfo = 'Arcade', ApisendGameInfo()
+
+    document.getElementById("button3.1").addEventListener("click", function () {
+        showQuestion4();
+        multiInfo = 'Multiplayer';
+        showAnswer('Multiplayer', 'Ja');
     });
-    buttonD5.addEventListener("click", function () {
-        showRecommendationPage(), genreInfo = 'Simulator', ApisendGameInfo()
+
+    document.getElementById("button3.1").addEventListener("click", function () {
+        showQuestion4();
+        multiInfo = 'Singelplayer';
+        showAnswer('Singelplayer', 'Ja');
     });
-    buttonD6.addEventListener("click", function () {
-        showRecommendationPage(), genreInfo = 'MMO', ApisendGameInfo()
+
+    document.getElementById("button4.1").addEventListener("click", function () {
+        showRecommendationPage();
+        genreInfo = 'Rpg';
+        showAnswer('Genre', 'Rpg');
     });
-    buttonD7.addEventListener("click", function () {
-        showRecommendationPage(), genreInfo = 'Horror', ApisendGameInfo()
+
+    document.getElementById("button4.2").addEventListener("click", function () {
+        showRecommendationPage();
+        genreInfo = 'Fps';
+        showAnswer('Genre', 'Fps');
     });
-    buttonD8.addEventListener("click", function () {
-        showRecommendationPage(), genreInfo = 'Fighting', ApisendGameInfo()
+
+    document.getElementById("button4.3").addEventListener("click", function () {
+        showRecommendationPage();
+        genreInfo = 'Action';
+        showAnswer('Genre', 'Action');
     });
+
+    document.getElementById("button4.4").addEventListener("click", function () {
+        showRecommendationPage();
+        genreInfo = 'Arcade';
+        showAnswer('Genre', 'Arcade');
+    });
+
+    document.getElementById("button4.5").addEventListener("click", function () {
+        showRecommendationPage();
+        genreInfo = 'Simulator';
+        showAnswer('Genre', 'Simulator');
+    });
+
+    document.getElementById("button4.6").addEventListener("click", function () {
+        showRecommendationPage();
+        genreInfo = 'MMO';
+        showAnswer('Genre', 'MMO');
+    });
+
+    document.getElementById("button4.7").addEventListener("click", function () {
+        showRecommendationPage();
+        genreInfo = 'Horror';
+        showAnswer('Genre', 'Horror');
+    });
+
+    document.getElementById("button4.8").addEventListener("click", function () {
+        showRecommendationPage();
+        genreInfo = 'Fighting';
+        showAnswer('Genre', 'Fighting');
+    });
+}
+
+function showAnswer(s1, s2) {
+    var answers = document.getElementById('answers');
+
+    var p1 = document.createElement('h3');
+    p1.innerHTML = s1 + ': ' + s2;
+
+    answers.appendChild(p1);
 }
 
 function showQuestion1() {
@@ -99,6 +132,7 @@ function showQuestion4() {
 
 function showRecommendationPage() {
     hideAllPages();
+    ApisendGameInfo();
     showElement('recommendationPage');
 }
 
@@ -131,10 +165,10 @@ function ApisendGameInfo() {
 function SendSucces(response) {
     console.log(response);
     var aantalRooms = response.length;
-    for (let teller = 0; teller < aantalRooms; teller++){
+    for (let teller = 0; teller < aantalRooms; teller++) {
         console.log(response[teller])
         var recommendationPlaceholder = document.getElementById("recommendationPlaceholder");
-        recommendationPlaceholder.innerHTML = recommendationPlaceholder.innerHTML + '<div style="display: inline-block;"> <img src="'+ response[teller].Image +'" alt="'+ response[teller].Name +'" style="width:250px;height:300px"> <br> <h3> '+response[teller].Name+'</h3> <h3> €'+response[teller].Budget+'</h3> </div>'
+        recommendationPlaceholder.innerHTML = recommendationPlaceholder.innerHTML + '<div style="display: inline-block;"> <img src="' + response[teller].Image + '" alt="' + response[teller].Name + '" style="width:250px;height:300px"> <br> <h3> ' + response[teller].Name + '</h3> <h3> €' + response[teller].Budget + '</h3> </div>'
     }
 }
 
