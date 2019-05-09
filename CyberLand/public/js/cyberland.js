@@ -4,7 +4,12 @@ var multiInfo;
 var genreInfo;
 
 function addbuttonactions() {
+
     document.getElementById("quizButton").addEventListener("click", function () {
+        var answers = document.getElementById("answers");
+        while (answers.firstChild) {
+            answers.removeChild(answers.firstChild);
+        }
         showQuestion1()
     });
 
@@ -54,7 +59,7 @@ function addbuttonactions() {
         showAnswer('Multiplayer', 'Ja');
     });
 
-    document.getElementById("button3.1").addEventListener("click", function () {
+    document.getElementById("button3.2").addEventListener("click", function () {
         showQuestion4();
         multiInfo = 'Singelplayer';
         showAnswer('Singelplayer', 'Ja');
