@@ -4,6 +4,14 @@ var multiInfo;
 var genreInfo;
 
 function addbuttonactions() {
+    document.getElementById("quizButton").addEventListener("click", function () {
+        showQuestion1()
+    });
+
+    document.getElementById("homeButton").addEventListener("click", function () {
+        showHomePage()
+    });
+
     document.getElementById("button1.1").addEventListener("click", function () {
         showQuestion2();
         budgetInfo = '0,30';
@@ -110,6 +118,11 @@ function showAnswer(s1, s2) {
     answers.appendChild(p1);
 }
 
+function showHomePage() {
+    hideAllPages();
+    showElement('homePage');
+}
+
 function showQuestion1() {
     hideAllPages();
     showElement('vraag1Page');
@@ -211,7 +224,7 @@ class Api {
 
 addbuttonactions();
 hideAllPages();
-showQuestion1();
+showHomePage();
 
 // function showRooms(response) {
 //     console.log(response);
