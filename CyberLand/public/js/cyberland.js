@@ -70,50 +70,50 @@ function addbuttonactions() {
     });
 
     document.getElementById("button4.1").addEventListener("click", function () {
-        showRecommendationPage();
         genreInfo = 'Rpg';
+        showRecommendationPage();
         showAnswer('Genre', 'Rpg');
     });
 
     document.getElementById("button4.2").addEventListener("click", function () {
-        showRecommendationPage();
         genreInfo = 'Fps';
+        showRecommendationPage();
         showAnswer('Genre', 'Fps');
     });
 
     document.getElementById("button4.3").addEventListener("click", function () {
-        showRecommendationPage();
         genreInfo = 'Action';
+        showRecommendationPage();
         showAnswer('Genre', 'Action');
     });
 
     document.getElementById("button4.4").addEventListener("click", function () {
-        showRecommendationPage();
         genreInfo = 'Arcade';
+        showRecommendationPage();
         showAnswer('Genre', 'Arcade');
     });
 
     document.getElementById("button4.5").addEventListener("click", function () {
-        showRecommendationPage();
         genreInfo = 'Simulator';
+        showRecommendationPage();
         showAnswer('Genre', 'Simulator');
     });
 
     document.getElementById("button4.6").addEventListener("click", function () {
-        showRecommendationPage();
         genreInfo = 'MMO';
+        showRecommendationPage();
         showAnswer('Genre', 'MMO');
     });
 
     document.getElementById("button4.7").addEventListener("click", function () {
-        showRecommendationPage();
         genreInfo = 'Horror';
+        showRecommendationPage();
         showAnswer('Genre', 'Horror');
     });
 
     document.getElementById("button4.8").addEventListener("click", function () {
-        showRecommendationPage();
         genreInfo = 'Fighting';
+        showRecommendationPage();
         showAnswer('Genre', 'Fighting');
     });
 }
@@ -186,6 +186,7 @@ function ApisendGameInfo() {
         'genre': genre,
     });
 
+    console.log(sendGameMessages);
     sendGameMessages.execute(SendSucces, SendFail);
 }
 
