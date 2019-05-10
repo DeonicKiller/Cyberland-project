@@ -7,8 +7,8 @@
 }
 
 #cyber {
-    
-    
+
+
 }
 
 #body {
@@ -17,12 +17,6 @@
     margin-top: 80px;
     margin-bottom: 8%;
     color: lightgrey;
-}
-
-#quizpage {
-
-margin-left:5%;
-top: 50%;
 }
 
 .navButton {
@@ -62,10 +56,11 @@ top: 50%;
 }
 
 #topBar {
-                background-color:#3b3939; 
-                position: fixed;
+                background-color:#3b3939;
+                position: static;
                 margin-top: -80px;
-                margin-left: 0px; 
+                margin-left: 0px;
+                margin-bottom: 20px;
                 height: 95px;
                 width: 100%;
                 color: lightgrey;
@@ -76,7 +71,7 @@ top: 50%;
                 width: 120px;
                 position: fixed;
                 background-color: #3b3939;
-                
+
                 margin-left: -120px;
                 margin-top: -80px;
                 border-right: 1px solid #464646;

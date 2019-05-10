@@ -17,6 +17,10 @@ function addbuttonactions() {
         showHomePage()
     });
 
+    document.getElementById("testButton").addEventListener("click", function () {
+        showTestPage()
+    });
+
     document.getElementById("button1.1").addEventListener("click", function () {
         showQuestion2();
         budgetInfo = '0,30';
@@ -126,6 +130,11 @@ function showAnswer(s1, s2) {
 function showHomePage() {
     hideAllPages();
     showElement('homePage');
+}
+
+function showTestPage() {
+    hideAllPages();
+    showElement('gameInfoPage');
 }
 
 function showQuestion1() {
