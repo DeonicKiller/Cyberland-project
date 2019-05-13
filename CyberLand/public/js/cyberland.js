@@ -193,6 +193,8 @@ function ApisendGameInfo() {
 function SendSucces(response) {
     console.log(response);
     var aantalRooms = response.length;
+    var recommendationPlaceholder = document.getElementById("recommendationPlaceholder");
+    recommendationPlaceholder.innerHTML = "";
     for (let teller = 0; teller < aantalRooms; teller++) {
         console.log(response[teller])
         var recommendationPlaceholder = document.getElementById("recommendationPlaceholder");

@@ -1,13 +1,12 @@
 #logo {
     left: -10px;
-    top: -10px;
     padding-left:7.5px;
     margin-bottom: 30px;
 
 }
 
-#cyber.logo {
-
+ #cyber.logo { 
+    left: 2px;
 
 }
 
@@ -73,7 +72,7 @@
                 background-color: #3b3939;
 
                 margin-left: -120px;
-                margin-top: -80px;
+                margin-top: -115px;
                 border-right: 1px solid #464646;
                 border-top: 1px solid #464646;
             }
