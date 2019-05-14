@@ -17,10 +17,6 @@ function addbuttonactions() {
         showHomePage()
     });
 
-    document.getElementById("testButton").addEventListener("click", function () {
-        showTestPage()
-    });
-
     document.getElementById("button1.1").addEventListener("click", function () {
         showQuestion2();
         budgetInfo = '0,30';
@@ -122,7 +118,7 @@ function addbuttonactionsgames(response) {
 let games = response.length;
 for(let teller = 0; teller < games; teller++){
     document.getElementById(teller).addEventListener("click", function () {
-        alert("fuckyou");
+        showGameInfo(response, teller);
     });
 }}
 
@@ -140,9 +136,13 @@ function showHomePage() {
     showElement('homePage');
 }
 
-function showTestPage() {
+function showGameInfo(response, teller) {
     hideAllPages();
     showElement('gameInfoPage');
+    var GameInfoPlaceholder = document.getElementById("gameInfoPage");
+    console.log(response);
+    GameInfoPlaceholder.innerHTML = "";
+    GameInfoPlaceholder.innerHTML = GameInfoPlaceholder.innerHTML + '<img type="image" id="'+teller+'" src="' + response[teller].Image + '" alt="' + response[teller].Name + '" style="width:250px;height:300px" >'+'<br> <h3 id="gameInfoNaam">Naam: '+ response[teller].Name +'</h3> <h3 id="gameInfoPlatform">Platform: '+ response[teller].Platform +'</h3> <h3 id="gameInfoPrijs">Prijs: €'+ response[teller].Budget +'</h3> <h3 id="gameInfoGenre">Genre: '+ response[teller].Genre +'</h3> <h3 id="gameInfoDescription">Description: <br>'+ response[teller].Description +'</h3>';
 }
 
 function showQuestion1() {
