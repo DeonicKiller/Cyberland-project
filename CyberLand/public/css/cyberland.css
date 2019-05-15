@@ -10,12 +10,8 @@
     height: 200px;
     width: 83%;
     margin: -100px 0 0 -200px;
-    top: 40%;
-    left: 30%;
-}
-
-#cyber.logo { 
-    left: 2px;
+    top: 30%;
+    left: 25%;
 }
 
 #body {
@@ -39,8 +35,8 @@
     color: #fff;
     background-color: #4CAF50;
     border: none;
-    border-radius: 15px;
-    margin-bottom: 5px;
+    border-radius: 2px;
+    margin-bottom: 2px;
 }
 
 .button {
@@ -54,7 +50,7 @@
     color: #fff;
     background-color: #4CAF50;
     border: none;
-    border-radius: 15px;
+    border-radius: 2px;
 }
 
 .button:hover {
