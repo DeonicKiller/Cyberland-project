@@ -5,6 +5,14 @@
 
 }
 
+.page {
+    position: absolute;
+    height: 200px;
+    width: 400px;
+    margin: -100px 0 0 -200px;
+    top: 40%;
+    left: 30%;
+}
  /* #cyber.logo { 
     
 
@@ -70,7 +78,6 @@
                 width: 120px;
                 position: fixed;
                 background-color: #3b3939;
-
                 margin-left: -120px;
                 margin-top: -115px;
                 border-right: 1px solid #464646;
