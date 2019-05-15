@@ -17,10 +17,6 @@ function addbuttonactions() {
         showHomePage()
     });
 
-    document.getElementById("testButton").addEventListener("click", function () {
-        showTestPage()
-    });
-
     document.getElementById("button1.1").addEventListener("click", function () {
         showQuestion2();
         budgetInfo = '0,30';
@@ -118,6 +114,14 @@ function addbuttonactions() {
     });
 }
 
+function addbuttonactionsgames(response) {
+let games = response.length;
+for(let teller = 0; teller < games; teller++){
+    document.getElementById(teller).addEventListener("click", function () {
+        showGameInfo(response, teller);
+    });
+}}
+
 function showAnswer(s1, s2) {
     var answers = document.getElementById('answers');
 
@@ -132,9 +136,13 @@ function showHomePage() {
     showElement('homePage');
 }
 
-function showTestPage() {
+function showGameInfo(response, teller) {
     hideAllPages();
     showElement('gameInfoPage');
+    var GameInfoPlaceholder = document.getElementById("gameInfoPage");
+    console.log(response);
+    GameInfoPlaceholder.innerHTML = "";
+    GameInfoPlaceholder.innerHTML = GameInfoPlaceholder.innerHTML + '<img type="image" id="'+teller+'" src="' + response[teller].Image + '" alt="' + response[teller].Name + '" style="width:250px;height:300px" >'+'<br> <h3 id="gameInfoNaam">Naam: '+ response[teller].Name +'</h3> <h3 id="gameInfoPlatform">Platform: '+ response[teller].Platform +'</h3> <h3 id="gameInfoPrijs">Prijs: €'+ response[teller].Budget +'</h3> <h3 id="gameInfoGenre">Genre: '+ response[teller].Genre +'</h3> <h3 id="gameInfoDescription">Description: <br>'+ response[teller].Description +'</h3>';
 }
 
 function showQuestion1() {
@@ -196,10 +204,11 @@ function SendSucces(response) {
     var recommendationPlaceholder = document.getElementById("recommendationPlaceholder");
     recommendationPlaceholder.innerHTML = "";
     for (let teller = 0; teller < aantalRooms; teller++) {
-        console.log(response[teller])
+        console.log(response[teller]);
         var recommendationPlaceholder = document.getElementById("recommendationPlaceholder");
-        recommendationPlaceholder.innerHTML = recommendationPlaceholder.innerHTML + '<div style="display: inline-block;"> <img src="' + response[teller].Image + '" alt="' + response[teller].Name + '" style="width:250px;height:300px"> <br> <h3> ' + response[teller].Name + '</h3> <h3> €' + response[teller].Budget + '</h3> </div>'
+        recommendationPlaceholder.innerHTML = recommendationPlaceholder.innerHTML + '<div style="display: inline-block;"> <input type="image" id="'+teller+'" src="' + response[teller].Image + '" alt="' + response[teller].Name + '" style="width:250px;height:300px" /> <br> <h3> ' + response[teller].Name + '</h3> <h3> €' + response[teller].Budget + '</h3> </div>';
     }
+    addbuttonactionsgames(response);
 }
 
 function SendFail(statusCode, errorMessage) {
@@ -242,13 +251,3 @@ class Api {
 addbuttonactions();
 hideAllPages();
 showHomePage();
-
-// function showRooms(response) {
-//     console.log(response);
-//     var aantalRooms = response.length;
-//     for (var teller = 0; teller < aantalRooms; teller++) {
-//         var buttonPlacement = document.getElementById("creatButtons");
-//         buttonPlacement.innerHTML = buttonPlacement.innerHTML + "<button id='Room" + teller + "Button'>" + response[teller].name + "</button>";
-//     }
-//     ButtonActions(response);
-// }
