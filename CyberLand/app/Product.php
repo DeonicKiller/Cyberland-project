@@ -20,4 +20,9 @@ class Product extends Model
     'Multi/on',
     'Genre',
  ];
+
+ public function opmerking()
+    {
+        return $this->hasMany('App\Opmerking');
+    }  
 }

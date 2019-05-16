@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Product;
 
+use App\Opmerking;
+
 use Illuminate\Http\Request;
 
 use Illuminate\Http\Response;
@@ -27,7 +29,9 @@ class ProductController extends Controller
     public function showProducts()
     {
        $products = Product::all();
-       
+       foreach ($products as $product) {
+       $product->opmerking;
+    } 
        return response()->json($products);
     }
     /**
