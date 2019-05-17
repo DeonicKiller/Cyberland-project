@@ -31,6 +31,7 @@ class ProductController extends Controller
        $products = Product::all();
        foreach ($products as $product) {
        $product->opmerking;
+       
     } 
        return response()->json($products);
     }
@@ -41,6 +42,9 @@ class ProductController extends Controller
     public function showProduct($productId)
 {
         $product = Product::findOrFail($productId);
+        
+        $product->opmerking;
+
         return response()->json($product);
     }
   /**
@@ -118,6 +122,13 @@ class ProductController extends Controller
         ->where('Genre', 'LIKE', $genre)
         ->whereBetween('Budget', $budget)
         ->get();
+    }
+
+    public function showProductComments($productId, Request $request)
+    {      
+        
+        $opmerkingen = Opmerking::where('product_id', $productId )->orderBy('created_at', 'desc')->paginate(20);
+        return response()->json($opmerkingen);
     }
 }
 

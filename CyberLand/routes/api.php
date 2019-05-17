@@ -29,6 +29,7 @@ $router->delete('/products/{productID}', 'ProductController@deleteProduct');
 $router->get('/quizs', 'QuizController@showQuizs');
 
 $router->post('/recomended','ProductController@RecomendedProducts');
+$router->get('/opmerking/{opmerkingID}', 'ProductController@showProductComments');
 
 //Opmerking controller
 
