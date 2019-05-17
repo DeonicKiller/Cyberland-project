@@ -140,11 +140,14 @@ function showGameInfo(response, teller) {
     hideAllPages();
     showElement('gameInfoPage');
     var GameInfoPlaceholder = document.getElementById("gameInfoPage");
+    var idgame = response[teller].id;
     console.log(response);
     GameInfoPlaceholder.innerHTML = "";
     GameInfoPlaceholder.innerHTML = GameInfoPlaceholder.innerHTML + '<img type="image" id="'+teller+'" src="' + response[teller].Image + '" alt="' + response[teller].Name + '" style="width:250px;height:300px" >'+
     '<br> <h3 id="gameInfoNaam">Naam: '+ response[teller].Name +'</h3> <h3 id="gameInfoPlatform">Platform: '+ response[teller].Platform +'</h3> <h3 id="gameInfoPrijs">Prijs: €'+ response[teller].Budget +
-    '</h3> <h3 id="gameInfoGenre">Genre: '+ response[teller].Genre +'</h3> <h3 id="gameInfoDescription">Description: <br>'+ response[teller].Description +'</h3>';
+    '</h3> <h3 id="gameInfoGenre">Genre: '+ response[teller].Genre +'</h3> <h3 id="gameInfoDescription">Description: <br>'+ response[teller].Description +'</h3> <h3 id="Commentsplaceholder"></h3>';
+    var comment = new Api('GET', 'opmerking/'+ idgame+'/');
+    comment.execute(CommentSucces, CommentFail)
 }
 
 function showQuestion1() {
@@ -210,11 +213,27 @@ function SendSucces(response) {
         var recommendationPlaceholder = document.getElementById("recommendationPlaceholder");
         recommendationPlaceholder.innerHTML = recommendationPlaceholder.innerHTML + '<div style="display: inline-block;"> <input type="image" id="'+teller+'" src="' + response[teller].Image + '" alt="' +
         response[teller].Name + '" style="width:250px;height:300px" /> <br> <h3> ' + response[teller].Name + '</h3> <h3> €' + response[teller].Budget + '</h3> </div>';
-    }
+    };
     addbuttonactionsgames(response);
 }
 
+function CommentSucces(response){
+console.log(response);
+var aantalOpmerkingen = response.data.length;
+var CommentsPlaceholder = document.getElementById("Commentsplaceholder");
+CommentsPlaceholder.innerHTML = "Comments: <br>";
+for (let teller = 0; teller < aantalOpmerkingen; teller++) {
+    var CommentsPlaceholder = document.getElementById("Commentsplaceholder");
+    CommentsPlaceholder.innerHTML = CommentsPlaceholder.innerHTML + '<div class="comments">' + response.data[teller].Opmerkingen +'</div>';
+}
+}
+
 function SendFail(statusCode, errorMessage) {
+    console.log(statusCode);
+    console.log(errorMessage);
+}
+
+function CommentFail(statusCode, errorMessage){
     console.log(statusCode);
     console.log(errorMessage);
 }

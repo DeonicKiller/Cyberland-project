@@ -83,3 +83,11 @@ border-top: 1px solid #464646;
 .textDeco {
     color: #3e8e41;
 }
+
+.comments{
+    margin: 10px;
+    padding: 10px;
+    background-color: blue;
+    border-style: solid;
+    border-color: black;
+}
