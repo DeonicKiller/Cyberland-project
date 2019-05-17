@@ -142,7 +142,9 @@ function showGameInfo(response, teller) {
     var GameInfoPlaceholder = document.getElementById("gameInfoPage");
     console.log(response);
     GameInfoPlaceholder.innerHTML = "";
-    GameInfoPlaceholder.innerHTML = GameInfoPlaceholder.innerHTML + '<img type="image" id="'+teller+'" src="' + response[teller].Image + '" alt="' + response[teller].Name + '" style="width:250px;height:300px" >'+'<br> <h3 id="gameInfoNaam">Naam: '+ response[teller].Name +'</h3> <h3 id="gameInfoPlatform">Platform: '+ response[teller].Platform +'</h3> <h3 id="gameInfoPrijs">Prijs: €'+ response[teller].Budget +'</h3> <h3 id="gameInfoGenre">Genre: '+ response[teller].Genre +'</h3> <h3 id="gameInfoDescription">Description: <br>'+ response[teller].Description +'</h3>';
+    GameInfoPlaceholder.innerHTML = GameInfoPlaceholder.innerHTML + '<img type="image" id="'+teller+'" src="' + response[teller].Image + '" alt="' + response[teller].Name + '" style="width:250px;height:300px" >'+
+    '<br> <h3 id="gameInfoNaam">Naam: '+ response[teller].Name +'</h3> <h3 id="gameInfoPlatform">Platform: '+ response[teller].Platform +'</h3> <h3 id="gameInfoPrijs">Prijs: €'+ response[teller].Budget +
+    '</h3> <h3 id="gameInfoGenre">Genre: '+ response[teller].Genre +'</h3> <h3 id="gameInfoDescription">Description: <br>'+ response[teller].Description +'</h3>';
 }
 
 function showQuestion1() {
@@ -206,7 +208,8 @@ function SendSucces(response) {
     for (let teller = 0; teller < aantalRooms; teller++) {
         console.log(response[teller]);
         var recommendationPlaceholder = document.getElementById("recommendationPlaceholder");
-        recommendationPlaceholder.innerHTML = recommendationPlaceholder.innerHTML + '<div style="display: inline-block;"> <input type="image" id="'+teller+'" src="' + response[teller].Image + '" alt="' + response[teller].Name + '" style="width:250px;height:300px" /> <br> <h3> ' + response[teller].Name + '</h3> <h3> €' + response[teller].Budget + '</h3> </div>';
+        recommendationPlaceholder.innerHTML = recommendationPlaceholder.innerHTML + '<div style="display: inline-block;"> <input type="image" id="'+teller+'" src="' + response[teller].Image + '" alt="' +
+        response[teller].Name + '" style="width:250px;height:300px" /> <br> <h3> ' + response[teller].Name + '</h3> <h3> €' + response[teller].Budget + '</h3> </div>';
     }
     addbuttonactionsgames(response);
 }
