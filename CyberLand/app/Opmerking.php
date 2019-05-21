@@ -16,4 +16,8 @@ class Opmerking extends Model
     'product_id',
  ];
  
+ public function product()
+    {
+        return $this->belongsTo('App\Product');
+    }
 }

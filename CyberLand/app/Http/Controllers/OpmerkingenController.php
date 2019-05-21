@@ -28,8 +28,10 @@ class OpmerkingenController extends Controller
      */   
     public function createOpmerking(Request $request)
     {
+        
         $rules = [
-        'Opmerkingen' => 'required',
+            'Opmerkingen' => 'required',
+            
         ];
 
         $this->validate($request, $rules);
@@ -38,5 +40,6 @@ class OpmerkingenController extends Controller
 
         return response()->json($opmerking, 201);
     }
+
 }
    
