@@ -122,15 +122,18 @@ for(let teller = 0; teller < games; teller++){
     });
 }}
 
-function addbuttonactionSend(){
+function addbuttonactionSend(idgame){
     var opmerking = document.getElementById("InputMessage");
     document.getElementById("SendButton").addEventListener("click", function () {
         var sendOpmerking = new Api('POST', 'opmerkingen', {
-            'Opmerkingen': opmerking,
+            'Opmerkingen': opmerking.value,
+            'product_id' : idgame,
         });
-        sendOpmerking.execute()
         alert("kut");
+        sendOpmerking.execute(SendSuccesOpmerking, SendFailOpmerking);
         opmerking.value = "";
+        var comment = new Api('GET', 'opmerking/'+ idgame+'/');
+        comment.execute(CommentSucces, CommentFail);
     });
 }
 
@@ -160,8 +163,8 @@ function showGameInfo(response, teller) {
     '</h3> <h3 id="gameInfoGenre">Genre: '+ response[teller].Genre +'</h3> <h3 id="gameInfoDescription">Description: <br>'+ response[teller].Description +
     '</h3> <h3>Comments:</h3> <textarea cols="50" rows="5" placeholder="schrijf hier uw bericht!" id="InputMessage"></textarea> <button id="SendButton">send</button> <h3 id="Commentsplaceholder"></h3>';
     var comment = new Api('GET', 'opmerking/'+ idgame+'/');
-    comment.execute(CommentSucces, CommentFail)
-    addbuttonactionSend()
+    comment.execute(CommentSucces, CommentFail);
+    addbuttonactionSend(idgame);
 }
 
 function showQuestion1() {
@@ -242,7 +245,7 @@ var CommentsPlaceholder = document.getElementById("Commentsplaceholder");
 CommentsPlaceholder.innerHTML = "";
 for (let teller = 0; teller < aantalOpmerkingen; teller++) {
     var CommentsPlaceholder = document.getElementById("Commentsplaceholder");
-    CommentsPlaceholder.innerHTML = CommentsPlaceholder.innerHTML + '<div class="comments">' + response.data[teller].Opmerkingen +'</div>';
+    CommentsPlaceholder.innerHTML = '<div class="comments"> anonymous: <br>' + response.data[teller].Opmerkingen + '<br>'+ response.data[teller].created_at +'</div>' + CommentsPlaceholder.innerHTML;
 }
 }
 
@@ -251,7 +254,7 @@ function SendFail(statusCode, errorMessage) {
     console.log(errorMessage);
 }
 
-function SendFail(statusCode, errorMessage){
+function SendFailOpmerking(statusCode, errorMessage){
     console.log(statusCode);
     console.log(errorMessage);
 }
