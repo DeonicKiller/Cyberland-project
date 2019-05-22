@@ -129,7 +129,6 @@ function addbuttonactionSend(idgame){
             'Opmerkingen': opmerking.value,
             'product_id' : idgame,
         });
-        alert("kut");
         sendOpmerking.execute(SendSuccesOpmerking, SendFailOpmerking);
         opmerking.value = "";
         var comment = new Api('GET', 'opmerking/'+ idgame+'/');
