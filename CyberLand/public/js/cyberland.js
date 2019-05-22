@@ -129,7 +129,6 @@ function addbuttonactionSend(idgame){
             'Opmerkingen': opmerking.value,
             'product_id' : idgame,
         });
-        alert("kut");
         sendOpmerking.execute(SendSuccesOpmerking, SendFailOpmerking);
         opmerking.value = "";
         var comment = new Api('GET', 'opmerking/'+ idgame+'/');
@@ -245,7 +244,7 @@ var CommentsPlaceholder = document.getElementById("Commentsplaceholder");
 CommentsPlaceholder.innerHTML = "";
 for (let teller = 0; teller < aantalOpmerkingen; teller++) {
     var CommentsPlaceholder = document.getElementById("Commentsplaceholder");
-    CommentsPlaceholder.innerHTML = '<div class="comments"> anonymous: <br>' + response.data[teller].Opmerkingen + '<br>'+ response.data[teller].created_at +'</div>' + CommentsPlaceholder.innerHTML;
+    CommentsPlaceholder.innerHTML = CommentsPlaceholder.innerHTML + '<div class="comments"> anonymous: <br>' + response.data[teller].Opmerkingen + '<br>'+ response.data[teller].created_at +'</div>';
 }
 }
 
