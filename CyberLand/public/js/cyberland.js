@@ -244,7 +244,7 @@ var CommentsPlaceholder = document.getElementById("Commentsplaceholder");
 CommentsPlaceholder.innerHTML = "";
 for (let teller = 0; teller < aantalOpmerkingen; teller++) {
     var CommentsPlaceholder = document.getElementById("Commentsplaceholder");
-    CommentsPlaceholder.innerHTML = '<div class="comments"> anonymous: <br>' + response.data[teller].Opmerkingen + '<br>'+ response.data[teller].created_at +'</div>' + CommentsPlaceholder.innerHTML;
+    CommentsPlaceholder.innerHTML = CommentsPlaceholder.innerHTML + '<div class="comments"> anonymous: <br>' + response.data[teller].Opmerkingen + '<br>'+ response.data[teller].created_at +'</div>';
 }
 }
 
