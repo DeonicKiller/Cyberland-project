@@ -160,7 +160,7 @@ function showGameInfo(response, teller) {
     GameInfoPlaceholder.innerHTML = GameInfoPlaceholder.innerHTML + '<img type="image" id="'+teller+'" src="' + response[teller].Image + '" alt="' + response[teller].Name + '" style="width:250px;height:300px" >'+
     '<br> <h3 id="gameInfoNaam">Naam: '+ response[teller].Name +'</h3> <h3 id="gameInfoPlatform">Platform: '+ response[teller].Platform +'</h3> <h3 id="gameInfoPrijs">Prijs: €'+ response[teller].Budget +
     '</h3> <h3 id="gameInfoGenre">Genre: '+ response[teller].Genre +'</h3> <h3 id="gameInfoDescription">Description: <br>'+ response[teller].Description +
-    '</h3> <h3>Comments:</h3> <textarea cols="50" rows="5" placeholder="schrijf hier uw bericht!" id="InputMessage"></textarea> <button id="SendButton">send</button> <h3 id="Commentsplaceholder"></h3>';
+    '</h3> <h3>Comments:</h3> <textarea cols="50" rows="5" placeholder="schrijf hier uw bericht!" id="InputMessage"></textarea> <button class=Send id="SendButton">send</button> <h3 id="Commentsplaceholder"></h3>';
     var comment = new Api('GET', 'opmerking/'+ idgame+'/');
     comment.execute(CommentSucces, CommentFail);
     addbuttonactionSend(idgame);

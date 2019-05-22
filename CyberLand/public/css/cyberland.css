@@ -1,6 +1,6 @@
 #logo {
     left: -10px;
-    padding-left:7.5px;
+    padding-left: 7.5px;
     margin-bottom: 30px;
 
 }
@@ -23,7 +23,7 @@
 }
 
 .navButton {
-    margin-left:20px;
+    margin-left: 20px;
     width: 80px;
     display: inline-block;
     padding: 0px;
@@ -58,33 +58,30 @@
 }
 
 #topBar {
- background-color:#3b3939;
- position: static;
-margin-top: -80px;
-margin-left: 0px;
-margin-bottom: 20px;
-height: 95px;
-width: 100%;
-color: lightgrey;
-border-bottom: 1px solid #464646;
+    position: static;
+    margin-top: -80px;
+    margin-left: 0px;
+    margin-bottom: 20px;
+    height: 95px;
+    width: 100%;
 }
 
 #sideBar {
-height: 100%;
-width: 120px;
-position: fixed;
-background-color: #3b3939;
-margin-left: -120px;
-margin-top: -115px;
-border-right: 1px solid #464646;
-border-top: 1px solid #464646;
+    height: 100%;
+    width: 120px;
+    position: fixed;
+    background-color: #3b3939;
+    margin-left: -120px;
+    margin-top: -115px;
+    border-right: 1px solid #464646;
+    border-top: 1px solid #464646;
 }
 
 .textDeco {
     color: #3e8e41;
 }
 
-.comments{
+.comments {
     margin: 10px;
     padding: 10px;
     background-color: #4CAF50;
@@ -94,7 +91,8 @@ border-top: 1px solid #464646;
     border: 1px;
     border-radius: 3px;
 }
-#SendButton{
+
+#SendButton {
     background: #4CAF50;
     color: #fff;
     padding: 10px 20px;
@@ -106,8 +104,10 @@ border-top: 1px solid #464646;
     text-align: center;
     text-decoration: none;
     outline: none;
+    margin-top: 200px;
 }
 
-#comments{
+#comments {
     background: white;
+
 }
