@@ -6,17 +6,17 @@
 }
 
 .page {
-    position: absolute;
+    position: static;
     height: 200px;
     width: 83%;
-    margin: -100px 0 0 -200px;
+    margin: 70px 0 0 180px;
     top: 30%;
     left: 25%;
 }
 
 #body {
     background-color: #413e3e;
-    margin-left: 120px;
+    margin-left: 0px;
     margin-top: 80px;
     margin-bottom: 8%;
     color: lightgrey;
@@ -71,10 +71,12 @@
     width: 120px;
     position: fixed;
     background-color: #3b3939;
-    margin-left: -120px;
+    margin-left: 0px;
+    margin-right: 120px;
     margin-top: -115px;
     border-right: 1px solid #464646;
     border-top: 1px solid #464646;
+
 }
 
 .textDeco {
@@ -110,4 +112,8 @@
 #comments {
     background: white;
 
+}
+
+#cyberLogo {
+padding-left: 130px;
 }
